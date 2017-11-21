@@ -3,7 +3,7 @@
 
 
 // Default constructor
-TcpClient::Client()
+TcpClient::TcpClient()
 {
 	this->port = 80000;
 	this->IPadress = "127.0.0.1";
@@ -12,7 +12,7 @@ TcpClient::Client()
 }
 
 // Constructor with user specified listening port
-TcpClient::Client(const int& port)
+TcpClient::TcpClient(const int& port)
 {
 	this->port = port;
 	this->IPadress = "127.0.0.1";
@@ -75,6 +75,7 @@ void TcpClient::connectToServer()
 		std::cerr << "Can't connect to server." << std::endl;
 		std::cerr << "Error #" << WSAGetLastError() << std::endl;
 		closeClean();
+		return;
 	}
 	else
 	{
